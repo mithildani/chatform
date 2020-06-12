@@ -28,30 +28,22 @@
 - hey bot!
 - hello friend
 
-## intent:request_restaurant
-- im looking for a restaurant
-- can i get [swedish](cuisine) food in any area
-- a restaurant that serves [caribbean](cuisine) food
-- id like a restaurant
-- im looking for a restaurant that serves [mediterranean](cuisine) food
-- can i find a restaurant that serves [chinese](cuisine)
-- i am looking for any place that serves [indonesian](cuisine) food for three
-- i need to find a restaurant
-- uh im looking for a restaurant that serves [kosher](cuisine) food
-- uh can i find a restaurant and it should serve [brazilian](cuisine) food
-- im looking for a restaurant serving [italian](cuisine) food
-- restaurant please
-- i'd like to book a table for two with [spanish](cuisine) cuisine
-- i need a table for 4
-- book me a table for three at the [italian](cuisine) restaurant
-- can you please book a table for 5?
-- I would like to book a table for 2
-- looking for a table at the [mexican](cuisine) restaurant for five
-- find me a table for 7 people
-- Can I get a table for four at the place which server [greek](cuisine) food?
+## intent:request_jobposting
+- i am looking to hire
+- i want to post a job
+- i want to hire
+- how can i post
+- how can i post job
+- i want to hire a [driver](profile)
+- i want to hire a [maid](profile)
+- i want to hire an [accountant](profile)
+- i want to hire a [male](gender) [accountant](profile)
+- i want to hire a [male](gender)
+- i want to hire a [female](gender)
+
 
 ## intent:affirm
-- yeah a cheap restaurant serving international food
+- yeah a genuine person
 - correct
 - ye
 - uh yes
@@ -69,6 +61,13 @@
 - yes and i dont care
 - right on
 - i love that
+- yupp
+- yup
+- cool
+- haa
+- ha
+- alright
+
 
 ## intent:deny
 - no
@@ -79,129 +78,20 @@
 - breath no
 - do you have something else
 - no this does not work for me
+- nope
+- nah
+- nahi
+- naa
+
 
 ## intent:inform
-- [afghan](cuisine) food
-- how bout [asian oriental](cuisine)
-- what about [indian](cuisine) food
-- uh how about [turkish](cuisine) type of food
-- um [english](cuisine)
-- im looking for [tuscan](cuisine) food
-- id like [moroccan](cuisine) food
-- [seafood](cuisine)
-- [french](cuisine) food
-- serves [british](cuisine) food
-- id like [canapes](cuisine)
-- serving [jamaican](cuisine) food
-- um what about [italian](cuisine) food
-- im looking for [corsica](cuisine) food
-- im looking for [world](cuisine) food
--  serves [french](cuisine) food
-- how about [indian](cuisine) food
-- can i get [chinese](cuisine) food
-- [irish](cuisine) food
-- [english](cuisine) food
-- [spanish](cuisine) food
-- how bout one that serves [portuguese](cuisine) food and is cheap
-- [german](cuisine)
-- [korean](cuisine) food
-- im looking for [romanian](cuisine) food
--  serves [canapes](cuisine) food
-- [gastropub](cuisine)
-- i want [french](cuisine) food
-- how about [modern european](cuisine) type of food
-- it should serve [scandinavian](cuisine) food
-- how [european](cuisine)
-- how about [european](cuisine) food
-- serves [traditional](cuisine) food
-- [indonesian](cuisine) food
-- [modern european](cuisine)
-- serves [brazilian](cuisine)
-- i would like [modern european](cuisine) food
-- looking for [lebanese](cuisine) food
-- [portuguese](cuisine)
-- [european](cuisine)
-- i want [polish](cuisine) food
-- id like [thai](cuisine)
-- i want to find [moroccan](cuisine) food
-- [afghan](cuisine)
-- [scottish](cuisine) food
-- how about [vietnamese](cuisine)
-- hi im looking for [mexican](cuisine) food
-- how about [indian](cuisine) type of food
-- [polynesian](cuisine) food
-- [mexican](cuisine)
-- instead could it be for four people
-- any [japanese](cuisine) food
-- what about [thai](cuisine) food
-- how about [asian oriental](cuisine) food
-- im looking for [japanese](cuisine) food
-- im looking for [belgian](cuisine) food
-- im looking for [turkish](cuisine) food
-- serving [corsica](cuisine) food
-- serving [gastro pub](cuisine:gastropub)
-- is there [british](cuisine) food
-- [world](cuisine) food
-- im looking for something serves [japanese](cuisine) food
-- id like a [greek](cuisine)
-- im looking for [malaysian](cuisine) food
-- i want to find [world](cuisine) food
-- serves [pan asian](cuisine:asian) food
-- looking for [afghan](cuisine) food
-- that serves [portuguese](cuisine) food
-- [asian oriental](cuisine:asian) food
-- [russian](cuisine) food
-- [corsica](cuisine)
-- [asian oriental](cuisine:asian)
-- serving [basque](cuisine) food
-- how about [italian](cuisine)
-- looking for [spanish](cuisine) food in the center of town
-- it should serve [gastropub](cuisine) food
-- [welsh](cuisine) food
-- i want [vegetarian](cuisine) food
-- im looking for [swedish](cuisine) food
-- um how about [chinese](cuisine) food
-- [world](cuisine) food
-- can i have a [seafood](cuisine) please
-- how about [italian](cuisine) food
-- how about [korean](cuisine)
-- [corsica](cuisine) food
-- [scandinavian](cuisine)
-- [vegetarian](cuisine) food
-- what about [italian](cuisine)
-- how about [portuguese](cuisine) food
-- serving [french](cuisine) food
-- [tuscan](cuisine) food
-- how about uh [gastropub](cuisine)
-- im looking for [creative](cuisine) food
-- im looking for [malaysian](cuisine) food
-- im looking for [unusual](cuisine) food
-- [danish](cuisine) food
-- how about [spanish](cuisine) food
-- im looking for [vietnamese](cuisine) food
-- [spanish](cuisine)
-- a restaurant serving [romanian](cuisine) food
-- im looking for [lebanese](cuisine) food
-- [italian](cuisine) food
-- a restaurant with [afghan](cuisine) food
-- im looking for [traditional](cuisine) food
-- uh i want [cantonese](cuisine) food
-- im looking for [thai](cuisine)
-- i want to seat [outside](seating)
-- i want to seat [inside](seating)
-- i want to seat [outdoor](seating)
-- i want to seat [indoor](seating)
-- let's go [inside](seating)
-- [inside](seating)
-- [outdoor](seating)
-- prefer sitting [indoors](seating)
-- I would like to seat [inside](seating) please
-- I prefer sitting [outside](seating)
-- my feedback is [good](feedback)
-- my feedback is [great](feedback)
-- it was [terrible](feedback)
-- i consider it [success](feedback)
-- you are [awful](feedback)
+- [driver](profile)
+- [accountant](profile)
+- [maid](profile)
+- [male](gender)
+- [male](gender)
+- [female](gender)
+- [both](gender)
 - for ten people
 - 2 people
 - for three people

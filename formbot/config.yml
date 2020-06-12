@@ -5,10 +5,6 @@ pipeline:
   - name: LexicalSyntacticFeaturizer
   - name: CountVectorsFeaturizer
     token_pattern: (?u)\b\w+\b
-  - name: DucklingHTTPExtractor
-    url: http://localhost:8000
-    dimensions:
-      - number
   - name: DIETClassifier
     epochs: 100
   - name: EntitySynonymMapper
