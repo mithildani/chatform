@@ -1,9 +1,11 @@
 ## intent:greet
 - Hi
 - Hey
+- heyy
 - Hi bot
 - Hey bot
 - Hello
+- hellloo
 - Good morning
 - hi again
 - hi folks
@@ -27,6 +29,7 @@
 - hi?
 - hey bot!
 - hello friend
+- ssup
 
 ## intent:request_jobposting
 - i am looking to hire
@@ -38,9 +41,21 @@
 - i want to hire a [maid](profile)
 - i want to hire an [accountant](profile)
 - i want to hire a [male](gender) [accountant](profile)
+- i want to hire a [male](gender) [maid](profile)
+- i want to hire a [female](gender) [maid](profile)
 - i want to hire a [male](gender)
 - i want to hire a [female](gender)
 - post job
+- job posting
+- need a [driver](profile)
+- I need a [driver](profile)
+- need a [maid](profile)
+- I need a [maid](profile)
+- need an [accountant](profile)
+- I need an [accountant](profile)
+- can i post a job
+- how can i hire
+- help
 
 ## intent:affirm
 - yeah a genuine person
@@ -88,19 +103,13 @@
 - [male](gender)
 - [female](gender)
 - [both](gender)
+- [both](gender) are fine
 - [0 - 6 months](experience)
 - [1 - 2 years](experience)
 - [more than 2 years](experience)
 - [0](number)
 - [1](number)
 - [2](number
-- for ten people
-- 2 people
-- for three people
-- just one person
-- book for seven people
-- 2 please
-- nine people
 - [driver](profile)
 
 ## intent:thankyou

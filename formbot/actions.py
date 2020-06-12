@@ -255,9 +255,9 @@ class JobpostingForm(FormAction):
 
         # utter submit template
         dispatcher.utter_message(template="utter_submit")
-        print(tracker.get_slot("profile"))
-        print(tracker.get_slot("experience"))
-        print(tracker.get_slot("gender"))
+        # print(tracker.get_slot("profile"))
+        # print(tracker.get_slot("experience"))
+        # print(tracker.get_slot("gender"))
         # print(tracker.get_slot("company_name"))
         DataUpdate(tracker.get_slot("profile"),tracker.get_slot("experience"),tracker.get_slot("gender"),tracker.get_slot("company"))
         return []
