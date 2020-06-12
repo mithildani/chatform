@@ -4,7 +4,7 @@ from rasa_sdk import Tracker, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 from rasa_sdk.events import AllSlotsReset
-
+from store_db import DataUpdate
 
 class JobpostingForm(FormAction):
     """Example of a custom form action"""
@@ -200,6 +200,11 @@ class JobpostingForm(FormAction):
 
         # utter submit template
         dispatcher.utter_message(template="utter_submit")
+        print(tracker.get_slot("profile"))
+        print(tracker.get_slot("experience"))
+        print(tracker.get_slot("gender"))
+        # print(tracker.get_slot("company_name"))
+        DataUpdate(tracker.get_slot("profile"),tracker.get_slot("experience"),tracker.get_slot("gender"),"Workindia")
         return []
 
 
