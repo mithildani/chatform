@@ -15,6 +15,7 @@ entities:
   - profile
   - number
   - gender
+  - experience
 
 slots:
   profile:
@@ -40,11 +41,32 @@ actions:
 
 responses:
   utter_ask_profile:
-    - text: "Which profile?"
+    - text: "Which profile do you want to hire?"
+      buttons:
+      - title: Driver
+        payload: '/inform{"profile": "driver"}'
+      - title: Accountant
+        payload: '/inform{"profile": "accountant"}'
+      - title: Maid
+        payload: '/inform{"profile": "maid"}'
   utter_ask_experience:
-    - text: "What is the experience level you are looking for?"
+    - text: "Okay, how much experience is required?"
+      buttons:
+      - title: 0 - 6 months
+        payload: '/inform{"experience": "0 - 6 months"}'
+      - title: 1 - 2 years
+        payload: '/inform{"experience": "1 - 2 years"}'
+      - title: More than 2 years
+        payload: '/inform{"experience": "more than 2 years"}'
   utter_ask_gender:
     - text: "What gender do you prefer for the above job?"
+      buttons:
+      - title: Male
+        payload: '/inform{"gender": "male"}'
+      - title: Female
+        payload: '/inform{"gender": "female"}'
+      - title: Both are fine
+        payload: '/inform{"gender": "both"}'
   utter_ask_preferences:
     - text: "please provide additional preferences"
   utter_ask_feedback:

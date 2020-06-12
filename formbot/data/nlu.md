@@ -92,6 +92,12 @@
 - [male](gender)
 - [female](gender)
 - [both](gender)
+- [0 - 6 months](experience)
+- [1 - 2 years](experience)
+- [more than 2 years](experience)
+- [0](number)
+- [1](number)
+- [2](number
 - for ten people
 - 2 people
 - for three people
