@@ -40,7 +40,7 @@
 - i want to hire a [male](gender) [accountant](profile)
 - i want to hire a [male](gender)
 - i want to hire a [female](gender)
-
+- post job
 
 ## intent:affirm
 - yeah a genuine person
@@ -49,7 +49,6 @@
 - uh yes
 - let's do it
 - yeah
-- uh yes
 - um yes
 - yes knocking
 - that's correct
@@ -68,7 +67,6 @@
 - ha
 - alright
 
-
 ## intent:deny
 - no
 - no new selection
@@ -83,12 +81,10 @@
 - nahi
 - naa
 
-
 ## intent:inform
 - [driver](profile)
 - [accountant](profile)
 - [maid](profile)
-- [male](gender)
 - [male](gender)
 - [female](gender)
 - [both](gender)
@@ -105,6 +101,7 @@
 - book for seven people
 - 2 please
 - nine people
+- [driver](profile)
 
 ## intent:thankyou
 - um thank you good bye

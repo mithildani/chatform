@@ -5,6 +5,9 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 from rasa_sdk.events import AllSlotsReset
 from store_db import DataUpdate
+from rasa_sdk.forms import FormAction, REQUESTED_SLOT, logger
+from rasa_sdk.events import AllSlotsReset, SlotSet, EventType
+
 
 class JobpostingForm(FormAction):
     """Example of a custom form action"""
@@ -17,8 +20,12 @@ class JobpostingForm(FormAction):
     @staticmethod
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
-
-        return ["profile", "experience", "gender"]
+        if tracker.get_slot('profile') == 'driver':
+            return ["profile", "company"]
+        elif tracker.get_slot('profile') == 'maid':
+            return ["profile", "experience", "company"]
+        else:
+            return ["profile", "experience", "gender", "company"]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
         """A dictionary to map required slots to
@@ -40,6 +47,9 @@ class JobpostingForm(FormAction):
                     entity="gender", intent=["inform", "request_restaurant"]
                 ),
             ],
+            "company": [
+                self.from_text()
+            ],
             # "outdoor_seating": [
             #     self.from_entity(entity="seating"),
             #     self.from_intent(intent="affirm", value=True),
@@ -51,6 +61,41 @@ class JobpostingForm(FormAction):
             # ],
             # "feedback": [self.from_entity(entity="feedback"), self.from_text()],
         }
+
+    def request_next_slot(
+            self,
+            dispatcher: "CollectingDispatcher",
+            tracker: "Tracker",
+            domain: Dict[Text, Any],
+    ) -> Optional[List[EventType]]:
+        """Request the next slot and utter template if needed,
+            else return None"""
+
+        for slot in self.required_slots(tracker):
+            if self._should_request_slot(tracker, slot):
+
+                ## Manually set desired slots
+                if slot == "company":
+                    if tracker.get_slot("profile") == "driver":
+                        dispatcher.utter_message(
+                            template=f"utter_ask_company"
+                        )
+                        return [SlotSet("experience", "more than 2 years"), SlotSet("gender", "male"), SlotSet(REQUESTED_SLOT, "company")]
+
+                    elif tracker.get_slot("profile") == "maid":
+                        dispatcher.utter_message(
+                            template=f"utter_ask_company"
+                        )
+                        return [SlotSet("gender", "female"), SlotSet(REQUESTED_SLOT, "company")]
+                ## For all other slots, continue as usual
+                # logger.debug(f"Request next slot '{slot}'")
+                # print("Next Slot", slot)
+                dispatcher.utter_message(
+                    template=f"utter_ask_{slot}", **tracker.slots
+                )
+                return [SlotSet(REQUESTED_SLOT, slot)]
+
+        return None
 
     # USED FOR DOCS: do not rename without updating in docs
     @staticmethod
@@ -148,6 +193,16 @@ class JobpostingForm(FormAction):
             # user will be asked for the slot again
             return {"gender": None}
 
+    def validate_company(
+            self,
+            value: Text,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """Validate cuisine value."""
+        return {"company": value}
+
     # def validate_num_people(
     #     self,
     #     value: Text,
@@ -215,3 +270,11 @@ class ActionResetAllSlots(Action):
 
     def run(self, dispatcher, tracker, domain):
         return [AllSlotsReset()]
+
+class SetSlotExperience(Action):
+
+    def name(self):
+        return "action_set_slot_experience"
+
+    def run(self, dispatcher, tracker, domain):
+        return [SlotSet("experience", "more than 2 years")]
