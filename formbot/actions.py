@@ -31,9 +31,9 @@ class JobpostingForm(FormAction):
             "profile": self.from_entity(entity="profile", not_intent="chitchat"),
             "experience": [
                 self.from_entity(
-                    entity="number", intent=["inform", "request_restaurant"]
+                    entity="experience", intent=["inform"]
                 ),
-                self.from_text(),
+                self.from_text(intent="inform"),
             ],
             "gender": [
                 self.from_entity(
@@ -70,7 +70,7 @@ class JobpostingForm(FormAction):
         return [
             "0 - 6 months",
             "1 - 2 years",
-            "More than 2 years"
+            "more than 2 years"
         ]
 
     @staticmethod
