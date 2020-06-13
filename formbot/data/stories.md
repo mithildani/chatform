@@ -104,6 +104,7 @@
 * deny
     - action_deactivate_form
     - form{"name": null}
+    - utter_stop
     - action_restart
 
 ## stop and really stop path 2
@@ -115,6 +116,7 @@
 * deny
     - action_deactivate_form
     - form{"name": null}
+    - utter_stop
     - action_restart
 
 ## happy path
@@ -178,6 +180,7 @@
 * deny
     - action_deactivate_form
     - form{"name": null}
+    - utter_stop
     - action_restart
 
 ## chitchat stop but continue path
@@ -243,6 +246,7 @@
 * deny
     - action_deactivate_form
     - form{"name": null}
+    - utter_stop
     - action_restart
 
 ## bot challenge

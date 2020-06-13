@@ -21,11 +21,11 @@ class JobpostingForm(FormAction):
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
         if tracker.get_slot('profile') == 'driver':
-            return ["profile", "company"]
+            return ["profile", "skills", "company"]
         elif tracker.get_slot('profile') == 'maid':
-            return ["profile", "experience", "company"]
+            return ["profile", "experience", "skills", "company"]
         else:
-            return ["profile", "experience", "gender", "company"]
+            return ["profile", "experience", "gender", "skills", "company"]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
         """A dictionary to map required slots to
@@ -46,6 +46,9 @@ class JobpostingForm(FormAction):
                 self.from_entity(
                     entity="gender", intent=["inform", "request_restaurant"]
                 ),
+            ],
+            "skills": [
+                self.from_text()
             ],
             "company": [
                 self.from_text()
@@ -87,6 +90,13 @@ class JobpostingForm(FormAction):
                             template=f"utter_ask_company"
                         )
                         return [SlotSet("gender", "female"), SlotSet(REQUESTED_SLOT, "company")]
+
+                ## Custom utter for skills
+                if slot == "skills":
+                    dispatcher.utter_message("Almost done! Type in which of the following skills does the job require:\n" +
+                                             ', '.join(self.skills_db(tracker.get_slot("profile"))))
+                    return [SlotSet(REQUESTED_SLOT, slot)]
+
                 ## For all other slots, continue as usual
                 # logger.debug(f"Request next slot '{slot}'")
                 # print("Next Slot", slot)
@@ -127,6 +137,18 @@ class JobpostingForm(FormAction):
             "female",
             "both"
         ]
+
+    @staticmethod
+    def skills_db(profile) -> List[Text]:
+        """Database of supported gender"""
+        if profile == "accountant":
+            return ["tds", "gst", "tally", "excel"]
+        elif profile == "driver":
+            return ["rickshaw", "bus", "car", "truck"]
+        elif profile == "maid":
+            return ["cooking", "cleaning", "babysitting"]
+
+        return []
 
     @staticmethod
     def is_int(string: Text) -> bool:
@@ -192,6 +214,32 @@ class JobpostingForm(FormAction):
             # validation failed, set this slot to None, meaning the
             # user will be asked for the slot again
             return {"gender": None}
+
+    def validate_skills(
+            self,
+            value: Text,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """Validate cuisine value."""
+
+        value_list = [x.strip() for x in value.split(',')]
+        clean_list = []
+
+        for skill in value_list:
+            if skill.lower() in self.skills_db(tracker.get_slot("profile")):
+                clean_list.append(skill.lower())
+
+
+        if (not clean_list):
+            dispatcher.utter_message(template="utter_wrong_skills")
+            # validation failed, set this slot to None, meaning the
+            # user will be asked for the slot again
+            return {"skills": None}
+
+        dispatcher.utter_message("Thanks, I understood following skill(s): \n" + ', '.join(clean_list))
+        return {"skills": ', '.join(clean_list)}
 
     def validate_company(
             self,

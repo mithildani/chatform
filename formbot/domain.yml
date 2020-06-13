@@ -83,7 +83,8 @@ responses:
   utter_slots_values:
     - text: "Thank you {company}, your {profile} job has been submitted for review.\n
               Experience: {experience},\n
-              Gender: {gender}\n"
+              Gender: {gender},\n
+              Skills: {skills}\n"
   utter_noworries:
     - text: "you are welcome :)"
   utter_chitchat:
@@ -96,6 +97,10 @@ responses:
     - text: "I can't understand the experience level, please try again"
   utter_wrong_gender:
     - text: "the gender field seems incorrect, please try again"
+  utter_wrong_skills:
+    - text: "None of the skills match, please try again (use ,)"
+  utter_stop:
+    - text: "Aborted process. How can I help?"
   utter_default:
     - text: "sorry, I didn't understand you, please try something else"
   utter_greet:
