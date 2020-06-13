@@ -81,9 +81,9 @@ responses:
   utter_submit:
     - text: "All done!"
   utter_slots_values:
-    - text: "Thank you {company}, your {profile} job has been submitted for review\n
-              Experience: {experience}\n
-              Gender: {gender}"
+    - text: "Thank you {company}, your {profile} job has been submitted for review.\n
+              Experience: {experience},\n
+              Gender: {gender}\n"
   utter_noworries:
     - text: "you are welcome :)"
   utter_chitchat:

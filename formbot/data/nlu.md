@@ -200,6 +200,9 @@
 - and you call yourself bot company? pff
 - and that's it?
 - nothing else?
+- cancel
+- quit
+- finish
 
 ## intent:bot_challenge
 - are you a bot?

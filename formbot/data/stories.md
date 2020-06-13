@@ -1,10 +1,12 @@
 ## greet 1
 * greet
     - utter_greet
+    - action_restart
 
 ## greet 2
 * greet
     - utter_greet
+    - action_restart
 
 ## thank 1
 * thankyou
@@ -116,21 +118,15 @@
     - action_restart
 
 ## happy path
-* greet
-    - utter_greet
 * request_jobposting
     - jobposting_form
     - form{"name": "jobposting_form"}
     - form{"name": null}
     - utter_slots_values
     - action_reset_all_slots
-* thankyou
-    - utter_noworries
     - action_restart
 
 ## unhappy path
-* greet
-    - utter_greet
 * request_jobposting
     - jobposting_form
     - form{"name": "jobposting_form"}
@@ -140,8 +136,6 @@
     - form{"name": null}
     - utter_slots_values
     - action_reset_all_slots
-* thankyou
-    - utter_noworries
     - action_restart
 
 ## very unhappy path
@@ -163,8 +157,6 @@
     - action_restart
 
 ## stop but continue path
-* greet
-    - utter_greet
 * request_jobposting
     - jobposting_form
     - form{"name": "jobposting_form"}
@@ -175,13 +167,9 @@
     - form{"name": null}
     - utter_slots_values
     - action_reset_all_slots
-* thankyou
-    - utter_noworries
     - action_restart
 
 ## stop and really stop path
-* greet
-    - utter_greet
 * request_jobposting
     - jobposting_form
     - form{"name": "jobposting_form"}
@@ -206,9 +194,6 @@
     - form{"name": null}
     - utter_slots_values
     - action_reset_all_slots
-* thankyou
-    - utter_noworries
-    - action_restart
     - action_restart
 
 ## stop but continue and chitchat path
