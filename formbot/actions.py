@@ -131,7 +131,6 @@ class JobpostingForm(FormAction):
     @staticmethod
     def gender_db() -> List[Text]:
         """Database of supported gender"""
-
         return [
             "male",
             "female",
@@ -140,7 +139,6 @@ class JobpostingForm(FormAction):
 
     @staticmethod
     def skills_db(profile) -> List[Text]:
-        """Database of supported gender"""
         if profile == "accountant":
             return ["tds", "gst", "tally", "excel"]
         elif profile == "driver":
@@ -307,7 +305,9 @@ class JobpostingForm(FormAction):
         # print(tracker.get_slot("experience"))
         # print(tracker.get_slot("gender"))
         # print(tracker.get_slot("company_name"))
-        DataUpdate(tracker.get_slot("profile"),tracker.get_slot("experience"),tracker.get_slot("gender"),tracker.get_slot("company"))
+        # print(type(tracker.get_slot("skills")))
+        # print(tracker.get_slot("skills"))
+        DataUpdate(tracker.get_slot("profile"),tracker.get_slot("experience"),tracker.get_slot("gender"),tracker.get_slot("company"),tracker.get_slot("skills"))
         return []
 
 
